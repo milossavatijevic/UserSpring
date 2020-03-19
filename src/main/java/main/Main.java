@@ -4,6 +4,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import config.MyBeanConfig;
+import dao.UserDao;
 import domen.User;
 import service.UserService;
 
@@ -20,15 +21,17 @@ public class Main {
 		user1.setUsername("miki");
 		user1.setPassword("miki");
 		
-		User user2 = container.getBean("user", User.class);
-		user2.setName("Petar");
-		user2.setLastname("Peric");
-		user2.setUsername("pera");
-		user2.setPassword("pera");
+		main.addUser(user1);
+		
+		user1.setName("Petar");
+		user1.setLastname("Peric");
+		user1.setUsername("pera");
+		user1.setPassword("pera");
 		
 		main.addUser(user1);
-		main.addUser(user2);
+		
 		main.printUsers();
+		
 
 	}
 
